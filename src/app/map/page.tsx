@@ -1,7 +1,6 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import { Skeleton } from '@/components/ui/skeleton';
 import Navigation from '@/components/Navigation';
 import { Globe, MapPin } from 'lucide-react';
 

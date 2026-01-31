@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { BarChart3, Microscope, ExternalLink, FileText, AlertTriangle, Droplets, Info } from 'lucide-react';

@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Microscope, ClipboardList, ChevronDown, ChevronUp, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { User } from '@supabase/supabase-js';
-import Image from 'next/image';
+
 
 export default function AnalyzePage() {
     const router = useRouter();
@@ -26,7 +26,7 @@ export default function AnalyzePage() {
                     return;
                 }
                 setUser(session.user);
-            } catch (err) {
+            } catch {
                 router.push('/login');
             } finally {
                 setLoading(false);
