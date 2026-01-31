@@ -4,16 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     Zap,
-    Filter,
-    Droplets,
-    FlaskConical,
-    Waves,
-    ShieldCheck,
-    Flame,
-    Ban,
-    Check,
-    Clock,
-    DollarSign
+    Filter
 } from 'lucide-react';
 
 // --- Types ---
