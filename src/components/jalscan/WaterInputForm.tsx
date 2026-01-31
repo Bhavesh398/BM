@@ -21,7 +21,6 @@ import {
     Banknote,
     Droplets,
     Globe,
-    Lock,
     X,
     Activity,
     TrendingUp,
@@ -35,8 +34,7 @@ import {
     PolarAngleAxis,
     PolarRadiusAxis,
     ResponsiveContainer,
-    Tooltip,
-    Legend
+    Tooltip
 } from 'recharts';
 import {
     WaterParameters,
@@ -152,7 +150,7 @@ export default function WaterInputForm({ onReportGenerated }: WaterInputFormProp
     const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
     const [showMap, setShowMap] = useState(false);
     const [isPublic, setIsPublic] = useState(true);
-    const [notes, setNotes] = useState('');
+    const [notes] = useState('');
 
     // UI state
     const [isLoadingTelemetry, setIsLoadingTelemetry] = useState(false);
@@ -216,14 +214,6 @@ export default function WaterInputForm({ onReportGenerated }: WaterInputFormProp
         setResult(null);
 
         // Simulate complex analysis steps
-        const steps = [
-            "Calibrating sensors...",
-            "Normalizing pH data...",
-            "Checking turbidity levels...",
-            "Scanning for pathogens...",
-            "Calculating conductivity...",
-            "Finalizing report..."
-        ];
 
         for (let i = 0; i <= 100; i += 2) {
             setAnalysisProgress(i);
@@ -748,6 +738,31 @@ export default function WaterInputForm({ onReportGenerated }: WaterInputFormProp
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    )}
+
+                                    {/* Public Report Toggle */}
+                                    <div className="flex items-center justify-between py-4 border-t border-border mt-4">
+                                        <div className="space-y-0.5">
+                                            <Label htmlFor="public-mode" className="text-base font-medium">
+                                                Public Global Map
+                                            </Label>
+                                            <p className="text-sm text-muted-foreground">
+                                                Contribute this data to the JalMap for public awareness
+                                            </p>
+                                        </div>
+                                        <Switch
+                                            id="public-mode"
+                                            checked={isPublic}
+                                            onCheckedChange={setIsPublic}
+                                        />
+                                    </div>
+
+                                    {/* Error Message */}
+                                    {error && (
+                                        <div className="p-3 mb-4 text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg flex items-center gap-2">
+                                            <AlertTriangle className="w-4 h-4 shrink-0" />
+                                            {error}
                                         </div>
                                     )}
 
